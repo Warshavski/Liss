@@ -1,2 +1,2 @@
 # Liss
-Sipmle Web API .NET Core application
+Simple .NET Core Web API application

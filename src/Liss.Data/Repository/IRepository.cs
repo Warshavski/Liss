@@ -9,7 +9,7 @@ namespace Liss.Data.Repository
 	public interface IRepository<TEntity> 
 		where TEntity : class, new()
 	{
-		IEnumerable<TEntity> GetAll();
+		List<TEntity> GetAll();
 		TEntity GetById(int id);
 		void Insert(TEntity entity);
 		void Delete(int id);

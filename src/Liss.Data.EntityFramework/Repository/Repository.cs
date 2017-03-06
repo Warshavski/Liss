@@ -25,7 +25,7 @@ namespace Liss.Data.EntityFramework.Repository
 			_dbTable.Remove(entity);
 		}					  
 
-		public IEnumerable<TEntity> GetAll()
+		public List<TEntity> GetAll()
 		{
 			return _dbTable.ToList();
 		}

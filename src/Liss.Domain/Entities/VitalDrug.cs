@@ -4,17 +4,23 @@
 	{
 		#region Properties.
 
-		public string Name { get; private set; }
+		public  int Id { get; set; }
 
-		public string DrugForm { get; private set; }
+		public string Name { get; set; }
 
-		public string Manufacturer { get; private set; }
+		public string DrugForm { get; set; }
 
-		public decimal MaxPrice { get; private set; }
+		public string Manufacturer { get; set; }
 
-		public string /*DateTime*/ RegistrationDate { get; private set; }
+		public decimal MaxPrice { get; set; }
+
+		public string /*DateTime*/ RegistrationDate { get; set; }
 
 		#endregion Properties.
+
+		public VitalDrug()
+		{
+		}
 
 		public VitalDrug(string drugName, string drugForm, string drugManufacturer,
 			decimal drugMaxPrice, string drugRegistrationDate)

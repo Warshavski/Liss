@@ -19,6 +19,7 @@ namespace Liss.Web.Api.Controllers
 		// GET: api/values
 		[HttpGet]
 		public IEnumerable<VitalDrug> Get()
+
 		{
 			return _vitalDrugService.GetAllVitalDrugs();
 		}

@@ -40,7 +40,7 @@ namespace Liss.Web.Api
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<DbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("RLS")));
+			services.AddDbContext<LissContext>(o => o.UseSqlServer(Configuration.GetConnectionString("RLS")));
 
 			// Add application services.
 			services.AddScoped<IRepository<VitalDrug>, Repository<VitalDrug>>();

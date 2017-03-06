@@ -15,7 +15,7 @@ namespace Liss.Data.EntityFramework
 
 		private IRepository<VitalDrug> _vitalDrugRepository = null;
 
-		public UnitOfWork(DbContext dbContext)
+		public UnitOfWork(LissContext dbContext)
 		{
 			_dbContext = dbContext;
 		}

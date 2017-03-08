@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using AutoMapper;
 using Liss.Data;
 
 namespace Liss.Domain.Services
 {
-	public class BaseService : IDisposable
+	public class BaseService<TEntity> : IDisposable
 	{
 		private readonly IUnitOfWork _unitOfWork = null;
 
@@ -14,9 +16,18 @@ namespace Liss.Domain.Services
 			_unitOfWork = unitOfWork;
 		}
 
+		#region IDisposable members
+
 		public void Dispose()
 		{
-			_unitOfWork.Dispose();
+			_unitOfWork?.Dispose();
+		}
+
+		#endregion
+
+		protected List<TEntity> CreateDomainEntitiesList<TDbEntity>(IMapper mapper, List<TDbEntity> dbEntitiesList)
+		{
+			return mapper.Map<List<TDbEntity> , List<TEntity>>(dbEntitiesList);
 		}
 	}
 }

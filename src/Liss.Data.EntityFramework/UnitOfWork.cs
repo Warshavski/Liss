@@ -36,7 +36,7 @@ namespace Liss.Data.EntityFramework
 
 		public void Dispose()
 		{
-			_dbContext.Dispose();
+			_dbContext?.Dispose();
 		}
 
 		#endregion

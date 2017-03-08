@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Liss.Data.Poco;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+using Liss.Data.Poco;
 
 namespace Liss.Data.EntityFramework.Mappings
 {
+	/// <summary>
+	/// Represents data base mapping configuration for vital drug poco
+	/// </summary>
 	public class VitalDrugMapper 
 	{
+		/// <summary>
+		/// Create mappings between data base table and vital drug poco class
+		/// </summary>
+		/// <see cref="DbContext"/>
+		/// <param name="entityBuilder">Entity framework EntityTypeBuilder</param>
 		public static void CreateMappings(EntityTypeBuilder<VitalDrug> entityBuilder)
 		{
 			entityBuilder.Property(b => b.Id).HasColumnName("NPP");
@@ -21,17 +26,5 @@ namespace Liss.Data.EntityFramework.Mappings
 
 			entityBuilder.ToTable("VITAL");
 		}
-
-		//public void CreateMappings(EntityTypeBuilder<VitalDrug> entityTypeBuilder)
-		//{
-		//	entityTypeBuilder.Property(b => b.Id).HasColumnName("NPP");
-		//	entityTypeBuilder.Property(b => b.DrugForm).HasColumnName("DRUGFORM");
-		//	entityTypeBuilder.Property(b => b.Manufacturer).HasColumnName("FIRM");
-		//	entityTypeBuilder.Property(b => b.MaxPrice).HasColumnName("MAXPRICE");
-		//	entityTypeBuilder.Property(b => b.Name).HasColumnName("TRADENAME");
-		//	entityTypeBuilder.Property(b => b.RegistrationDate).HasColumnName("REGDATE");
-
-		//	entityTypeBuilder.ToTable("VITAL");
-		//}
 	}
 }

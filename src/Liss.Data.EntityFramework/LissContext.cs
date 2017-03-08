@@ -5,8 +5,15 @@ using Liss.Data.Poco;
 
 namespace Liss.Data.EntityFramework
 {
+	/// <summary>
+	/// Custom data base context
+	/// </summary>
 	public class LissContext : DbContext
 	{
+		/// <summary>
+		/// .Ctor
+		/// </summary>
+		/// <param name="options"></param>
 		public LissContext(DbContextOptions options)
 			: base(options)
 		{

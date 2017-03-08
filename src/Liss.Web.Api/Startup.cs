@@ -43,7 +43,6 @@ namespace Liss.Web.Api
 			services.AddDbContext<LissContext>(o => o.UseSqlServer(Configuration.GetConnectionString("RLS")));
 
 			// Add application services.
-			services.AddScoped<IRepository<VitalDrug>, Repository<VitalDrug>>();
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
 			services.AddScoped<VitalDrugService>();
 

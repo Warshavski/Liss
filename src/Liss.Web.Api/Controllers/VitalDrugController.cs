@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Mvc;
+
 using Liss.Domain.Entities;
 using Liss.Domain.Services;
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,7 +18,7 @@ namespace Liss.Web.Api.Controllers
 			_vitalDrugService = vitalDrugService;
 		}
 
-		// GET: api/values
+		// GET: api/vitaldrug
 		[HttpGet]
 		public IEnumerable<VitalDrug> Get()
 
@@ -24,35 +26,39 @@ namespace Liss.Web.Api.Controllers
 			return _vitalDrugService.GetAllVitalDrugs();
 		}
 
-		// GET api/values/5
-		[HttpGet("{id}")]
-		public string Get(int id)
+		// GET api/vitaldrug/{pattern}
+		[HttpGet("{pattern}")]
+		public List<VitalDrug> Get(string pattern)
 		{
-			return "value";
+			return _vitalDrugService.SearchVitalDrugs(pattern);
 		}
 
-		// POST api/values
+		// POST api/vitaldrug
 		[HttpPost]
 		public void Post([FromBody]string value)
 		{
 		}
 
-		// PUT api/values/5
+		// PUT api/vitaldrug/5
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody]string value)
 		{
 		}
 
-		// DELETE api/values/5
+		// DELETE api/vitaldrug/5
 		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
 		}
 
+		#region Dispose
+
 		protected override void Dispose(bool disposing)
 		{
-			_vitalDrugService.Dispose();
+			_vitalDrugService?.Dispose();
 			base.Dispose(disposing);
 		}
+
+		#endregion
 	}
 }

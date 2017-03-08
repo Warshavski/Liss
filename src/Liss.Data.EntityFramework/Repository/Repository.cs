@@ -13,6 +13,9 @@ namespace Liss.Data.EntityFramework.Repository
 		private readonly DbContext _dbContext = null;
 		private readonly DbSet<TEntity> _dbTable = null;
 
+		protected DbContext DbContext => _dbContext;
+		protected DbSet<TEntity> DbTable => _dbTable;
+
 		public Repository(DbContext dbContext)
 		{
 			_dbContext = dbContext;

@@ -9,7 +9,7 @@ namespace Liss.Domain.Services
 
 		protected IUnitOfWork UnitOfWork => _unitOfWork;
 
-		public BaseService(IUnitOfWork unitOfWork)
+		protected BaseService(IUnitOfWork unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
 		}

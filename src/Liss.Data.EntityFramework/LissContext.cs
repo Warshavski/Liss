@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+
+using Liss.Data.EntityFramework.Mappings;
 using Liss.Data.Poco;
-using Microsoft.EntityFrameworkCore;
 
 namespace Liss.Data.EntityFramework
 {
 	public class LissContext : DbContext
 	{
-		public LissContext(DbContextOptions<LissContext> options)
+		public LissContext(DbContextOptions options)
 			: base(options)
 		{
 			
@@ -19,32 +17,7 @@ namespace Liss.Data.EntityFramework
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.Id)
-				.HasColumnName("NPP");
-
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.DrugForm)
-				.HasColumnName("DRUGFORM");
-
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.Manufacturer)
-				.HasColumnName("FIRM");
-
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.MaxPrice)
-				.HasColumnName("MAXPRICE");
-
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.Name)
-				.HasColumnName("TRADENAME");
-
-			modelBuilder.Entity<VitalDrug>()
-				.Property(b => b.RegistrationDate)
-				.HasColumnName("REGDATE");
-
-			modelBuilder.Entity<VitalDrug>()
-				.ToTable("VITAL");
+			modelBuilder.Entity<VitalDrug>(VitalDrugMapper.CreateMappings);
 		}
 	}
 }
